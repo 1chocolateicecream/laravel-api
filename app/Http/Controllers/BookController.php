@@ -56,7 +56,7 @@ class BookController extends Controller
     public function update(Request $request, Book $book)
     {
         $book->update($request->all());
-        return redirect()->route('books.index');
+        return response()->json($book);
     }
 
     /**
@@ -65,6 +65,6 @@ class BookController extends Controller
     public function destroy(Book $book)
     {
         $book->delete();
-        return redirect()->route('books.index');
+        return response()->json(['message' => 'Book deleted successfully']);
     }
 }
